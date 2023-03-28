@@ -1,0 +1,5 @@
+*.log
+*.pych
+__pycache__/
+new_data/
+files/
