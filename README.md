@@ -34,4 +34,4 @@ The Retinal Blood Vessel Segmentation project is a deep learning-based solution 
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/retinal-blood-vessel-segmentation.git
+   git clone git@github.com:abuzarmd-ML/Image-Segmentation-DRIVE-dataset.git
