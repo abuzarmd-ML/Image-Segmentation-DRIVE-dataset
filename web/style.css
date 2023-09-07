@@ -1,0 +1,17 @@
+/* Change the font for the entire app */
+body {
+    font-family: "Arial", sans-serif;
+    color: #000000; /* Change text color to dark gray */
+}
+
+/* Change the font for headers */
+h1, h2, h3 {
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FF5733; /* Change header text color to orange */
+}
+
+/* Change the font and color for paragraphs */
+p {
+    font-family: "Times New Roman", serif;
+    color: #000000; /* Change paragraph text color to blue */
+}
