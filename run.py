@@ -70,13 +70,39 @@ def perform_segmentation(uploaded_image):
 
 
 # Main Streamlit app
+# def main():
+
+#     set_background('presentation/cover1.png')
+#     # Header
+#     # st.markdown("<h1 style='text-align: center;'>Retina Blood Vessel Segmentation App</h1>", unsafe_allow_html=True)
+
+#     # Title and description
+#     with open('web/style.css') as f:
+#         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+#         st.markdown("<h1 style='text-align: center;'>RetinaVision: Precise Vessel Segmentation</h1>", unsafe_allow_html=True)
+#     # st.title("Image Segmentation App")
+#     st.write("Upload an image and see the segmented result!")
+
+#     # Upload image
+#     uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+
+#     if uploaded_image is not None:
+#         # Display the uploaded image
+#         st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+
+#         # Perform segmentation on the uploaded image
+#         segmented_image = perform_segmentation(uploaded_image)
+
+#         # Display the segmented image
+#         st.image(segmented_image, caption="Segmented Image", use_column_width=True)
+
+
+# Main Streamlit app
 def main():
 
     set_background('presentation/cover1.png')
-    # Header
-    # st.markdown("<h1 style='text-align: center;'>Retina Blood Vessel Segmentation App</h1>", unsafe_allow_html=True)
-
-    # Title and description
+    
+    ## Title and description
     with open('web/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
         st.markdown("<h1 style='text-align: center;'>RetinaVision: Precise Vessel Segmentation</h1>", unsafe_allow_html=True)
@@ -87,14 +113,27 @@ def main():
     uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
 
     if uploaded_image is not None:
+
         # Display the uploaded image
-        st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
+        st.image(uploaded_image, use_column_width=True)
+        st.markdown("<p style='text-align: center; color: red;'><b>Uploaded Image</b></p>", unsafe_allow_html=True)
 
         # Perform segmentation on the uploaded image
         segmented_image = perform_segmentation(uploaded_image)
 
-        # Display the segmented image
-        st.image(segmented_image, caption="Segmented Image", use_column_width=True)
+        # Create two columns for original and segmented images
+        col1, col2 = st.columns(2)
+
+        # Display the original image in the first column
+        with col1:
+            st.image(uploaded_image,  use_column_width=True)
+            st.markdown("<p style='text-align: center; color: red;'><b>Original Image</b></p>", unsafe_allow_html=True)
+
+
+        # Display the segmented image in the second column
+        with col2:
+            st.image(segmented_image, use_column_width=True)
+            st.markdown("<p style='text-align: center; color: red;'><b>Segmented Image</b></p>", unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
