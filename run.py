@@ -110,13 +110,13 @@ def main():
     st.write("Upload an image and see the segmented result!")
 
     # Upload image
-    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg",".tif"])
 
     if uploaded_image is not None:
 
         # Display the uploaded image
         st.image(uploaded_image, use_column_width=True)
-        st.markdown("<p style='text-align: center; color: red;'><b>Uploaded Image</b></p>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center; color: red;'><b>Uploaded Image</b></h2>", unsafe_allow_html=True)
 
         # Perform segmentation on the uploaded image
         segmented_image = perform_segmentation(uploaded_image)
@@ -127,13 +127,13 @@ def main():
         # Display the original image in the first column
         with col1:
             st.image(uploaded_image,  use_column_width=True)
-            st.markdown("<p style='text-align: center; color: red;'><b>Original Image</b></p>", unsafe_allow_html=True)
+            st.markdown("<h2 style='text-align: center; color: red;'><b>Original Image</b></h2>", unsafe_allow_html=True)
 
 
         # Display the segmented image in the second column
         with col2:
             st.image(segmented_image, use_column_width=True)
-            st.markdown("<p style='text-align: center; color: red;'><b>Segmented Image</b></p>", unsafe_allow_html=True)
+            st.markdown("<h2 style='text-align: center; color: red;'><b>Segmented Image</b></h2>", unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
